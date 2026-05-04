@@ -22,9 +22,10 @@ async function startServer() {
 
     if (resend) {
       try {
+        const recipient = process.env.CONTACT_RECIPIENT_EMAIL || 'mercuritesolutions@gmail.com';
         await resend.emails.send({
           from: 'ATL Electrical <onboarding@resend.dev>',
-          to: 'mercuritesolutions@gmail.com', // User's email from metadata
+          to: recipient,
           subject: `New Quote Request: ${service} from ${name}`,
           html: `
             <h1>New Quote Request</h1>
